@@ -4516,11 +4516,9 @@ static void xtest_test_keygen_dh(ADBG_Case_t *c, TEEC_Session *session)
 				       key_types[n].subprime_len);
 		}
 
-		if (!ADBG_EXPECT_TRUE(c,
-			generate_and_test_key(c, session, TEE_TYPE_DH_KEYPAIR,
-				*key_types[n].private_bits,
-				key_types[n]. key_size, params, param_count)))
-			break;
+		generate_and_test_key(c, session, TEE_TYPE_DH_KEYPAIR,
+			*key_types[n].private_bits,
+			key_types[n]. key_size, params, param_count);
 
 		Do_ADBG_EndSubCase(c,
 				   "Generate DH key %d bits - Private bits = %d",
@@ -4580,11 +4578,9 @@ static void xtest_test_keygen_dsa(ADBG_Case_t *c, TEEC_Session *session)
 		xtest_add_attr(&param_count, params, TEE_ATTR_DSA_BASE,
 			       key_types[n].base, key_types[n].base_len);
 
-		if (!ADBG_EXPECT_TRUE(c,
-			generate_and_test_key(c, session, TEE_TYPE_DSA_KEYPAIR,
-				1, key_types[n]. key_size, params,
-				param_count)))
-			break;
+		generate_and_test_key(c, session, TEE_TYPE_DSA_KEYPAIR,
+			1, key_types[n]. key_size, params,
+			param_count);
 
 		Do_ADBG_EndSubCase(c, "Generate DSA key %d bits",
 				   key_types[n].key_size);
@@ -4639,11 +4635,9 @@ static void xtest_test_keygen_ecc(ADBG_Case_t *c, TEEC_Session *session)
 		xtest_add_attr_value(&param_count, params, TEE_ATTR_ECC_CURVE,
 			             key_types[n].curve, 0);
 
-		if (!ADBG_EXPECT_TRUE(c,
-			generate_and_test_key(c, session, key_types[n].algo,
-				0, key_types[n].key_size, params,
-				param_count)))
-			break;
+		generate_and_test_key(c, session, key_types[n].algo,
+			0, key_types[n].key_size, params,
+			param_count);
 
 		Do_ADBG_EndSubCase(c, "Generate %s", key_types[n].name);
 	}
