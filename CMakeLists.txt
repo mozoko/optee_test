@@ -16,7 +16,7 @@ add_compile_options (
 	-Wmissing-noreturn -Wmissing-prototypes -Wnested-externs
 	-Wpointer-arith -Wshadow -Wstrict-prototypes
 	-Wswitch-default -Wunsafe-loop-optimizations
-	-Wwrite-strings -Werror -fPIC
+	-Wwrite-strings -fPIC
  	-Wno-missing-field-initializers
 )
 

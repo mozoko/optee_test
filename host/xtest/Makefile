@@ -138,7 +138,7 @@ CFLAGS += -DTA_DIR=\"$(TA_DIR)\"
 CFLAGS += -include conf.h
 
 ifndef CFG_GP_PACKAGE_PATH
-CFLAGS += -Wall -Wcast-align -Werror \
+CFLAGS += -Wall -Wcast-align \
 	  -Werror-implicit-function-declaration -Wextra -Wfloat-equal \
 	  -Wformat-nonliteral -Wformat-security -Wformat=2 -Winit-self \
 	  -Wmissing-declarations -Wmissing-format-attribute \
@@ -149,6 +149,7 @@ CFLAGS += -Wall -Wcast-align -Werror \
 	  -Wno-missing-field-initializers -Wno-format-zero-length
 endif
 
+CFLAGS += -Wno-error
 CFLAGS += -g3
 
 LDFLAGS += -L$(OPTEE_CLIENT_EXPORT)/lib -lteec
