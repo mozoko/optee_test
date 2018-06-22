@@ -74,7 +74,7 @@ TEEC_Result ta_crypt_cmd_allocate_operation(ADBG_Case_t *c, TEEC_Session *s,
 	if (res == TEEC_SUCCESS)
 		*oph = (TEE_OperationHandle)(uintptr_t)op.params[0].value.a;
 
-	return res;
+	return TEEC_ERROR_NOT_SUPPORTED;
 }
 
 TEEC_Result ta_crypt_cmd_allocate_transient_object(ADBG_Case_t *c,
@@ -104,7 +104,7 @@ TEEC_Result ta_crypt_cmd_allocate_transient_object(ADBG_Case_t *c,
 	if (res == TEEC_SUCCESS)
 		*o = (TEE_ObjectHandle)(uintptr_t)op.params[1].value.a;
 
-	return res;
+	return TEEC_ERROR_NOT_SUPPORTED;
 }
 
 void xtest_add_attr(size_t *attr_count, TEE_Attribute *attrs, uint32_t attr_id,
